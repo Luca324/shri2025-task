@@ -1,3 +1,6 @@
+console.log('script loaded')
+
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "../reset.css";
@@ -217,7 +220,7 @@ const TABS = {
   },
 };
 for (let i = 0; i < 6; ++i) {
-  TABS.all.items = [...TABS.all.items, ...TABS.all.items];
+  TABS.all.items = TABS.all.items.concat(TABS.all.items);
 }
 const TABS_KEYS = Object.keys(TABS);
 
@@ -240,7 +243,7 @@ function Main() {
 
   let sizes = [];
   const onSize = (size) => {
-    sizes = [...sizes, size];
+    sizes.push(size)
   };
 
   React.useEffect(() => {
@@ -428,12 +431,10 @@ function Main() {
   );
 }
 
-setTimeout(() => {
-  const root = ReactDOM.createRoot(document.getElementById("app"));
-  root.render(
-    <>
-      <Header />
-      <Main />
-    </>
-  );
-}, 100);
+const root = ReactDOM.createRoot(document.getElementById("app"));
+root.render(
+  <>
+    <Header />
+    <Main />
+  </>
+);
