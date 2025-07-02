@@ -219,8 +219,11 @@ const TABS = {
     ],
   },
 };
-for (let i = 0; i < 6; ++i) {
-  TABS.all.items = TABS.all.items.concat(TABS.all.items);
+const initialItems = TABS.all.items;
+TABS.all.items = [];
+const finalSize = 2 ** 6
+for (let i = 0; i < finalSize; ++i) {
+  TABS.all.items.push(...initialItems);
 }
 const TABS_KEYS = Object.keys(TABS);
 
