@@ -1,0 +1,28 @@
+{
+  "name": "shri2025-task",
+  "version": "1.0.0",
+  "description": "Оптимизировать страницу, выложить результат на Github-Pages и отправить его на проверку на [https://shri-performance.ru/](https://shri-performance.ru/), отправив адрес вашей страницы. Нужно набрать минимум **80 баллов**. Набрать больше баллов возможно, но больше 120 в зачёт не пойдёт.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean-docs": "if exist docs rmdir /s /q docs",
+    "copy-docs": "xcopy dist docs /E /I",
+    "nojekyll": "type nul > docs\\.nojekyll",
+    "postbuild": "npm run clean-docs && timeout /t 1 > nul && mkdir docs && npm run copy-docs && npm run nojekyll",
+    "deploy": "npm run build && npm run postbuild"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "vite": "^6.3.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.6.0",
+    "babel-plugin-react-compiler": "19.1.0-rc.2"
+  }
+}
