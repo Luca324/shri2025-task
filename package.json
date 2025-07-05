@@ -7,11 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "clean-docs": "if exist docs rmdir /s /q docs",
-    "copy-docs": "xcopy dist docs /E /I",
     "nojekyll": "type nul > docs\\.nojekyll",
-    "postbuild": "npm run clean-docs && timeout /t 1 > nul && mkdir docs && npm run copy-docs && npm run nojekyll",
-    "deploy": "npm run build && npm run postbuild"
+    "deploy": "npm run build && npm run nojekyll"
   },
   "keywords": [],
   "author": "",
