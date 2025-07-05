@@ -13,5 +13,8 @@ export default defineConfig({
         },
       }),
   ],
-  base: '/shri2025-task/'
+  base: '/shri2025-task/',
+  build: {
+    outDir: 'docs', // вместо dist
+  },
 })
